@@ -64,7 +64,7 @@ function App() {
 			<div className='inputSection'>
 				{history}
 				<form onSubmit={handleSubmit}>
-					{`${historyPosition}/${textHistory.length}> `} <input
+					{`> `} <input
 					className='inputTerminal'
 					onKeyDown={handleKeyDown}
 					onInput={handleText}
