@@ -5,8 +5,9 @@ function App() {
 	const [text, setText] = useState("Hello World")
 	const [history, setHistory] = useState([<p>{commands.welcome}</p>])
 	const searchInput = useRef(null);
+	const scrollToInput = () => searchInput.current.scrollIntoView();
 	function handleText(e) {
-		setText(e.target.value)
+		setText(e.target.value.toLowerCase())
 	}
 	function handleSubmit(e){
 		e.preventDefault()
@@ -23,13 +24,16 @@ function App() {
 			"Command not found, check the list from the bottom to know wich commands are available"
 		)}</p>;
 		setHistory([...history, el, res])
-		setText("")
-		searchInput.current.focus()
-
+		if(text === "clear"){
+			setHistory([]);
+		}
+		setText("");
+		scrollToInput();
 	}
 	useEffect(()=>{
 		searchInput.current.focus();
-	 },[])
+		searchInput.current.scrollIntoView();
+	},[text, history])
 
 	return (
 		<div className="App" onFocus={handleText}>
