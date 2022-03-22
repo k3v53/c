@@ -28,6 +28,8 @@ function App() {
 				"Command not found, check the list from the bottom to know wich commands are available"
 			)}</p>;
 			setHistory([...history, el, res])
+			setTextHistory([...textHistory, closest_similar || text])
+			setHistoryPosition(textHistory.length + 1);
 			if(text === "clear"){
 				setHistory([]);
 			}
@@ -45,12 +47,21 @@ function App() {
 				setText(closest_similar)
 			break;
 			case "ArrowUp":
-				// TODO: History on up
+				console.log(historyPosition, textHistory.length)
+				if(historyPosition > 0){
+					setHistoryPosition(historyPosition - 1)
+					setText(textHistory[historyPosition])
+				}
 			break;
 			case "ArrowDown":
-				// TODO: History on down
+				console.log(historyPosition, textHistory.length)
+				if(historyPosition < textHistory.length){
+					setHistoryPosition(historyPosition + 1)
+					setText(textHistory[historyPosition])
+				}
 			break;
 			default:
+				console.log(e.key)
 				break;
 		}
 	}
@@ -64,7 +75,7 @@ function App() {
 			<div className='inputSection'>
 				{history}
 				<form onSubmit={handleSubmit}>
-					{`> `} <input
+					{`${historyPosition}/${textHistory.length}> `} <input
 					className='inputTerminal'
 					onKeyDown={handleKeyDown}
 					onInput={handleText}
