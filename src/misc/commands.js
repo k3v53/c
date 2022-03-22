@@ -9,7 +9,7 @@ const getTimeString = () => {
 	return `son las ${String(d.getHours()).padStart(2)}:${String(d.getMinutes()).padStart(2)}hs`
 }
 const commands = {
-	"welcome": `Stupid terminal v0.0.2; type 'help' to be helped lol`,
+	"welcome": `Stupid terminal v0.0.3; type 'help' to be helped lol`,
 	"hello world": "Bienvenido!",
 	"cd kev.ar": () => document.location = "https://kev.ar",
 	"cd wp.kev.ar": () => document.location = "https://wp.kev.ar",
