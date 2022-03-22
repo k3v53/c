@@ -8,9 +8,9 @@ const getTimeString = () => {
 	const d = new Date();
 	return `son las ${String(d.getHours()).padStart(2)}:${String(d.getMinutes()).padStart(2)}hs`
 }
-export default {
+const commands = {
 	"welcome": `Stupid terminal v0.0.2; type 'help' to be helped lol`,
-	"Hello World": "Bienvenido!",
+	"hello world": "Bienvenido!",
 	"cd kev.ar": () => document.location = "https://kev.ar",
 	"cd wp.kev.ar": () => document.location = "https://wp.kev.ar",
 	"hola": "Hola internauta!",
@@ -55,3 +55,5 @@ export default {
 	"sentado en la esquina": "pensando en como fui tan ***",
 	"kash": "Hey! ese es el próximo nombre de mi lenguaje esotérico inspirado en bash",
 }
+
+export default commands
