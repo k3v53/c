@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
-import commands from './misc/commands'
+import commands from './misc/commands';
+import ReactGA from 'react-ga';
 function App() {
+	ReactGA.initialize("G-GSSHP6JJDD");
 	const [text, setText] = useState("hello world")
 	const [history, setHistory] = useState([<p>{commands.welcome}</p>])
 	const [textHistory, setTextHistory] = useState([])
@@ -27,6 +29,11 @@ function App() {
 				finalCommand ||
 				"Command not found, check the list from the bottom to know wich commands are available"
 			)}</p>;
+			ReactGA.event({
+				category: "web_cli",
+				action: "web_cli_command",
+				label: closest_similar || text,
+			})
 			setHistory([...history, el, res])
 			if(text === "clear"){
 				setHistory([]);
