@@ -24,15 +24,16 @@ function App() {
 				fnReturn = commands[closest_similar]()
 			}
 			let finalCommand = fnReturn || commands[text] || commands[closest_similar];
+			const commandResponse = finalCommand ||
+				"Command not found, check the list from the bottom to know wich commands are available";
 			let el = <p>{'> ' + (commands[text] !== undefined? text : closest_similar || text) }</p>;
-			let res = <p>{'' + (
-				finalCommand ||
-				"Command not found, check the list from the bottom to know wich commands are available"
-			)}</p>;
+			let res = <p>{'' + (commandResponse)}</p>;
 			ReactGA.event({
 				category: "web_cli",
 				action: "web_cli_command",
 				label: closest_similar || text,
+				command_exist: closest_similar !== undefined,
+				command_response: commandResponse
 			})
 			setHistory([...history, el, res])
 			if(text === "clear"){
