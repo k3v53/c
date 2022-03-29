@@ -28,7 +28,7 @@ function App() {
 				"Command not found, check the list from the bottom to know wich commands are available";
 			let el = <p>{'> ' + (commands[text] !== undefined? text : closest_similar || text) }</p>;
 			let res = <p>{'' + (commandResponse)}</p>;
-			ReactGA.event("web_cli_command", {
+			ReactGA.event({
 				category: "web_cli",
 				action: "web_cli_command",
 				label: `${closest_similar || text}`,
