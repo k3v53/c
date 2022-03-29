@@ -22,6 +22,8 @@ const commands = {
 	"info": "This is a simple website that simulates a command line, almost every command is in spanish but if somebody really find this site useful I can make the english versions of the same commands",
 	"r34": "No sé de que estás hablando",
 	"contacto": "contact@kev.ar",
+	"stupid terminal repo": "https://github.com/k3v53/stupid-terminal",
+	"cual es el repositorio de stupid terminal?": "Aqui tienes: https://github.com/k3v53/stupid-terminal",
 	"email": "contact@kev.ar",
 	"como puedo contactarte?": "Pronto estaré lanzando un subdominio con mi contacto, espero verte pronto en contacto.kev.ar!!",
 	"puedes volar": "no",
