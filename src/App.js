@@ -28,12 +28,12 @@ function App() {
 				"Command not found, check the list from the bottom to know wich commands are available";
 			let el = <p>{'> ' + (commands[text] !== undefined? text : closest_similar || text) }</p>;
 			let res = <p>{'' + (commandResponse)}</p>;
-			ReactGA.event({
+			ReactGA.event("web_cli_command", {
 				category: "web_cli",
 				action: "web_cli_command",
-				label: closest_similar || text,
-				command_exist: closest_similar !== undefined,
-				command_response: commandResponse
+				label: `${closest_similar || text}`,
+				command_exist: `${closest_similar !== undefined}`,
+				command_response: `${commandResponse}`
 			})
 			setHistory([...history, el, res])
 			if(text === "clear"){
